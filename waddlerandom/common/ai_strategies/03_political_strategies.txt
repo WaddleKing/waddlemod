@@ -913,6 +913,7 @@ ai_strategy_meiji_restoration = {
 		OR = {
 			has_modifier = shogun_ig_forced_to_open_market
 			has_journal_entry = je_meiji_main
+			this = c:JAP
 		}
 	}
 	

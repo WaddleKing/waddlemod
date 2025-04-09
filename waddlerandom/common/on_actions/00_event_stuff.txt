@@ -59,7 +59,7 @@ revolutions_event = {
         }
         if = {
 			limit = {
-				year = 1850
+				year = 1855
 			}
             every_country = {
                 if = {

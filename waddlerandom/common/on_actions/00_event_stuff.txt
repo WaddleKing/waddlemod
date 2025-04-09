@@ -1,0 +1,90 @@
+on_yearly_pulse = {
+    on_actions = {
+        revolutions_event
+    }
+}
+
+revolutions_event = {
+    effect = {
+        if = {
+			limit = {
+				year = 1848
+			}
+            every_country = {
+                if = {
+                    limit = {
+                        country_rank = rank_value:great_power
+                    }
+                    save_temporary_scope_as = temp_country_scope
+                    every_scope_culture = {
+                        limit = {
+                            NOT = {
+                                is_primary_culture_of = scope:temp_country_scope
+                            }
+                        }
+                        save_temporary_scope_as = temp_culture_scope
+                        if = {
+                            limit = {
+                                temp_country_scope = {
+                                    country_average_cultural_acceptance = {  
+                                        target = scope:temp_culture_scope 
+                                        value <= 60  
+                                    }
+                                }
+                            }
+                            every_state = {
+                                limit = {
+                                    owner = scope:temp_country_scope
+                                    state_region = {is_homeland = scope:temp_culture_scope}
+                                }
+                                add_radicals_in_state = {
+                                    culture = scope:temp_culture_scope
+                                    value = 0.3
+                                }
+                                if = {
+                                    limit = {
+                                        scope:temp_culture_scope = cu:hungarian
+                                    }
+                                    add_radicals_in_state = {
+                                        culture = scope:temp_culture_scope
+                                        value = 0.3
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        if = {
+			limit = {
+				year = 1850
+			}
+            every_country = {
+                if = {
+                    limit = {
+                        country_rank = rank_value:great_power
+                    }
+                    save_temporary_scope_as = temp_country_scope
+                    every_scope_culture = {
+                        limit = {
+                            is_primary_culture_of = scope:temp_country_scope
+                        }
+                        save_temporary_scope_as = temp_culture_scope
+                        every_state = {
+                            limit = {
+                                owner = scope:temp_country_scope
+                                state_region = {is_homeland = scope:temp_culture_scope}
+                            }
+                            add_loyalists_in_state = {
+                                culture = scope:temp_culture_scope
+                                value = 0.4
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

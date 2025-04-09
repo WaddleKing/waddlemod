@@ -1,0 +1,138 @@
+on_capitulation = {
+	on_actions = {
+		ai_lose_war
+	}
+}
+
+ai_lose_war = {
+	effect = {
+		every_subject_or_below = {
+			add_liberty_desire = 30
+		}
+		every_scope_culture = {
+			limit = {
+				NOT = {
+					is_primary_culture_of = ROOT
+				}
+			}
+			save_temporary_scope_as = temp_culture_scope
+			every_state = {
+				limit = {
+					owner = ROOT
+					state_region = {is_homeland = scope:temp_culture_scope}
+				}
+				add_radicals_in_state = {
+					culture = prev
+					value = 0.1
+				}
+			}
+		}
+	}
+}
+
+on_battle_won = {
+    on_actions = {
+        ai_on_battle_won
+    }
+}
+
+ai_on_battle_won = {
+    effect = {
+        if = {
+			limit = {
+                scope:attacker.owner = ROOT
+            }
+            random_scope_war = {
+                limit = {
+                    random_scope_front = {
+                        random_scope_general = {
+                            this = scope:attacker
+                        }
+                    }
+                }
+                save_scope_as = winning_war
+                scope:winning_war = {
+                    add_war_war_support = {
+                        target = scope:attacker.owner
+                        value = 1
+                    }
+                }
+            }
+        }
+		if = {
+			limit = {
+                scope:defender.owner = ROOT
+            }
+            random_scope_war = {
+                limit = {
+                    random_scope_front = {
+                        random_scope_general = {
+                            this = scope:defender
+                        }
+                    }
+                }
+                save_scope_as = winning_war
+                scope:winning_war = {
+                    add_war_war_support = {
+                        target = scope:defender.owner
+                        value = 0.5
+                    }
+                }
+            }
+        }
+    }
+}
+
+on_battle_lost = {
+    on_actions = {
+        ai_on_battle_lost
+    }
+}
+
+ai_on_battle_lost = {
+    effect = {
+        if = {
+			limit = {
+                scope:attacker.owner = ROOT
+            }
+            random_scope_war = {
+                limit = {
+                    random_scope_front = {
+                        random_scope_general = {
+                            this = scope:attacker
+                        }
+                    }
+                }
+                save_scope_as = losing_war
+                scope:losing_war = {
+                    add_war_war_support = {
+                        target = scope:attacker.owner
+                        value = -0.2
+                    }
+                }
+            }
+        }
+		if = {
+			limit = {
+                scope:defender.owner = ROOT
+            }
+            random_scope_war = {
+                limit = {
+                    random_scope_front = {
+                        random_scope_general = {
+                            this = scope:defender
+                        }
+                    }
+                }
+                save_scope_as = losing_war
+                scope:losing_war = {
+                    add_war_war_support = {
+                        target = scope:defender.owner
+                        value = -0.5
+                    }
+                }
+            }
+        }
+    }
+}
+

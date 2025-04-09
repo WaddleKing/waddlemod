@@ -1,0 +1,75 @@
+AI = {
+
+	every_country = {
+		random_list = {
+			1 = {set_strategy = ai_strategy_agricultural_expansion}
+			1 = {set_strategy = ai_strategy_plantation_economy}
+			1 = {set_strategy = ai_strategy_resource_expansion}
+			1 = {set_strategy = ai_strategy_placate_population}
+			1 = {set_strategy = ai_strategy_colonial_extraction}
+			1 = {set_strategy = ai_strategy_industrial_expansion}
+		}
+		random_list = {
+			1 = {set_strategy = ai_strategy_maintain_power_balance}
+			1 = {set_strategy = ai_strategy_territorial_expansion}
+			1 = {set_strategy = ai_strategy_colonial_expansion}
+			1 = {set_strategy = ai_strategy_armed_isolationism}
+			1 = {set_strategy = ai_strategy_economic_imperialism}
+			1 = {set_strategy = ai_strategy_socialism_in_one_country}
+			1 = {set_strategy = ai_strategy_world_revolution}
+			1 = {set_strategy = ai_strategy_anti_imperialism}
+		}
+		random_list = {
+			1 = {set_strategy = ai_strategy_conservative_agenda}
+			1 = {set_strategy = ai_strategy_reactionary_agenda}
+			1 = {set_strategy = ai_strategy_progressive_agenda}
+			1 = {set_strategy = ai_strategy_egalitarian_agenda}
+			1 = {set_strategy = ai_strategy_nationalist_agenda}
+			#1 = {set_strategy = ai_strategy_maintain_mandate_of_heaven}
+			#1 = {set_strategy = ai_strategy_great_reforms}
+		}
+	}	
+	 # Default AI subject starting strategy depends on LD
+	every_country = {
+		limit = { is_subject = yes }
+		if = {
+			limit = { liberty_desire >= 60 }
+			set_strategy = ai_strategy_subject_strengthen_self
+		}
+		else_if = {
+			limit = { liberty_desire <= 20 }
+			set_strategy = ai_strategy_subject_overlord_compliance
+		}
+		else = {
+			set_strategy = ai_strategy_subject_maintain_autonomy
+		}
+	}
+	c:SAR ?= {
+		set_strategy = ai_strategy_unify_italy
+	}
+	c:PAP ?= {
+		set_strategy = ai_strategy_unify_italy
+	}
+	c:TUS ?= {
+		set_strategy = ai_strategy_unify_italy
+	}			
+	c:SIC ?= {
+		set_strategy = ai_strategy_unify_italy
+	}	
+	c:PRU ?= {
+		set_strategy = ai_strategy_unify_germany
+	}
+	c:TUR ?= {	
+		set_strategy = ai_strategy_tanzimat_reforms
+	}	
+	c:JAP ?= {
+		set_strategy = ai_strategy_meiji_restoration
+	}	
+	c:CHI ?= {
+		set_strategy = ai_strategy_great_reforms
+	}	
+}	
+
+
+
+

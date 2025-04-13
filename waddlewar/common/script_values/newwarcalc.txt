@@ -1,4 +1,4 @@
-﻿# root = country
+# root = country
 # scope:war = the war we're evaluating war exhaustion for
 # No randomness is allowed in this script value
 
@@ -128,7 +128,7 @@ war_exhaustion = {
 				scope:temp_enemy_occupation <= 1.0
 			}
 			add = {
-				add = 10.0
+				add = 20.0
 				desc = "WAR_EXHAUSTION_FROM_ENEMY_OCCUPATION_TOTAL"
 			}
 		}

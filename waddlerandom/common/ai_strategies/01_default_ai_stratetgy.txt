@@ -1,0 +1,96 @@
+﻿# This is a special strategy that sets the default values for different AI scores
+# All AIs always load data from this strategy, which can then be either added to or overridden by data from its other strategies
+
+ai_strategy_default = {
+	
+	# The AI will avoid getting this much infamy unless it's a wargoal it really wants
+	# Using a different value in a strategy will override this value
+	undesirable_infamy_level = {
+		value = 80
+	}
+	
+	
+	
+	# Added to willingness to support a country in diplomatic plays	
+	# Using this value in other strategies will function additively
+	# root = supporting country doing the AI evaluation
+	# scope:country = country we're evaluating support for (either initiator or target)
+	# scope:enemy_country = the opposing side's leader
+	# scope:diplomatic_play_type = the type of diplomatic play
+	# scope:is_initiator = bool, set to true if evaluating support for initiator, false if target
+	# NOTE: You need to include a description when adding values here so there are correct tooltips, this is different from most of ai strategy data!
+	diplomatic_play_support = {
+		value = 0
+		
+		### German Leadership War
+		if = {
+			# Non-Germans should stay out of the leadership war unless they have a good reason to intervene
+			limit = {
+				scope:diplomatic_play_type = play_type:dp_leadership_germany
+				NOR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+					country_has_primary_culture = cu:north_italian
+				}				
+			}
+				
+			add = {
+				value = -100000
+				desc = "german_leadership_neutrality"
+			}
+		}
+		if = {
+			# italians
+			limit = {
+				scope:diplomatic_play_type = play_type:dp_leadership_germany
+				if = {
+					country_has_primary_culture = cu:north_italian
+					if = {
+						scope:country = c:PRU
+					}
+				}				
+			}
+				
+			add = {
+				value = 1000
+			}
+		}
+	}
+		
+		
+	# Added to base boldness in diplomatic plays	
+	# Using this value in other strategies will function additively
+	diplomatic_play_boldness = {
+		value = 100
+	}
+		
+		
+	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
+	# Using this value in other strategies will function additively (values below 0 or above 1 have no further effect)
+	wargoal_maneuvers_fraction = {
+		value = 1
+	}
+		
+	
+	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
+	# Using this value in other strategies will function additively
+	aggression = {
+		value = 1
+		
+		if = { #Japan also wants Korea
+			limit = {
+				country_has_primary_culture = cu:japanese
+				NOT = {
+					has_law = law_type:law_isolationism
+					has_law = law_type:law_closed_borders
+				}
+				scope:target_country = {
+					is_country_type = unrecognized
+					country_has_primary_culture = cu:korean
+				}
+			}
+			add = 10
+		}
+
+	}
+}

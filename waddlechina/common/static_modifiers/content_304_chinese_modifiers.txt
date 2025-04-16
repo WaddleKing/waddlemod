@@ -1,0 +1,15 @@
+﻿
+modifier_chinese_warlord_era = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	interest_group_ig_armed_forces_pop_attraction_mult = 0.1
+	interest_group_ig_armed_forces_pol_str_mult = 0.3
+	country_officers_pol_str_mult = 0.75
+	country_loan_interest_rate_mult = -1
+}
+
+modifier_end_of_warlord_period = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_bureaucracy_mult = 0.10
+	country_authority_add = 500
+	country_legitimacy_base_add = 50
+}

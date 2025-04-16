@@ -1,0 +1,26 @@
+﻿
+NMilitary = {
+	INITIAL_MANPOWER_COST_MULTIPLIER = 1
+	BATTLE_LETHALITY_MIN = 0.01
+	BATTLE_LETHALITY_MAX = 1
+	ATTRITION_RECOVERY_RATE_BASE = 0.0				# Base recovery rate for units not participating in battles affected by attrition, e.g. casualties with 0.7 recovery rate would consist of 70% wounded and 30% deaths
+	ATTRITION_RECOVERY_RATE_RANDOM_RANGE = 0.0
+	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.5		# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
+	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 2	# applied to the number of casualties caused by troops with Offense/Defense also factored in - increasing this makes CE more important and battles more lethal
+	BATTLE_MAX_CASUALTY_DISADVANTAGE_PENALTY = 10.0  # a limit for the battle_casualties_disadvantage static modifier. 1.0 means a maximum of 100% penalty is applied.
+	MAX_CE_ADVANTAGE = 10
+}
+
+NBattle = {
+	SURVIVAL_RATE = 0.00
+	CASUALTY_MAJORITY_CULTURE_WEIGHT = 1			# Majority culture pops will be weighted to take 1.5x more casualties				# The number of months battle popularity modifiers decay over
+}
+
+NWar = {
+	DEVASTATION_MAX = 200.0
+	DEVASTATION_INCREASE_RATE = 0.2 # Per day, scales with level of occupation
+	DEVASTATION_DECAY_RATE = -0.2 # Per day, when there are no occupations
+	DEVASTATION_FROM_BATTLES = 40 # For each battle
+}
+
+

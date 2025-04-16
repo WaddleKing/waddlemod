@@ -1,0 +1,4 @@
+﻿NDiplomacy = {
+	BASE_YEARLY_INFAMY_DECAY_RATE = 5.0 	# Decay rate of infamy per year
+	WAR_GOAL_INFAMY_ANNEX_COUNTRY = 0.0
+}

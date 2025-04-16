@@ -1,0 +1,14 @@
+{
+    "name" : "waddle china",                     
+    "id" : "waddle china",          
+    "version" : "1",                   
+    "game_id" : "victoria3",             
+    "supported_game_version" : "1.8.7",   
+    "short_description" : "waddle china",   
+    "tags" : [],        
+    "relationships" : [                  
+    ],                 
+    "game_custom_data" : {               
+      "multiplayer_synchronized" : true   
+    }
+  }

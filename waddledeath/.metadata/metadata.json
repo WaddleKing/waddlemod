@@ -1,0 +1,14 @@
+{
+    "name" : "waddledeath",                     
+    "id" : "waddledeath",          
+    "version" : "1",                   
+    "game_id" : "victoria3",             
+    "supported_game_version" : "1.8.7",   
+    "short_description" : "waddle death mod",   
+    "tags" : [],        
+    "relationships" : [                  
+    ],                 
+    "game_custom_data" : {               
+      "multiplayer_synchronized" : true   
+    }
+  }
